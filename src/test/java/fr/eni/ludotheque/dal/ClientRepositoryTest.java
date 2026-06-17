@@ -15,8 +15,8 @@ public class ClientRepositoryTest {
     @Autowired
     private ClientRepository clientRepository;
 
+
     @Test
-    
     public void testCreationClientCasPositif(){
         // Arrange
         Adresse adresse = new Adresse();
