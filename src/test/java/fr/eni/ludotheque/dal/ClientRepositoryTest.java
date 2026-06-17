@@ -16,7 +16,7 @@ public class ClientRepositoryTest {
     private ClientRepository clientRepository;
 
     @Test
-    @Transactional
+    
     public void testCreationClientCasPositif(){
         // Arrange
         Adresse adresse = new Adresse();
