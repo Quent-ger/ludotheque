@@ -28,8 +28,8 @@ public class Client {
     @Column(length = 10)
     private String noTelephone;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE},  fetch = FetchType.LAZY)
-    @JoinColumn(name= "no_client")
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE},  fetch = FetchType.EAGER)
+    @JoinColumn(name= "no_adresse")
     private Adresse adresse;
 
 }
