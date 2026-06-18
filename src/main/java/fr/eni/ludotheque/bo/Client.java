@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Table(name="CLIENTS")
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Client {
 
     @Id
@@ -32,4 +32,11 @@ public class Client {
     @JoinColumn(name= "no_adresse")
     private Adresse adresse;
 
+    public Client(String nom, String prenom, String email, String noTelephone, Adresse adresse) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.noTelephone = noTelephone;
+        this.adresse = adresse;
+    }
 }

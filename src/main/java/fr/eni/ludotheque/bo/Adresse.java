@@ -1,14 +1,14 @@
 package fr.eni.ludotheque.bo;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Entity
+@Table(name="ADRESSES")
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 
 public class Adresse {
 
@@ -17,12 +17,20 @@ public class Adresse {
     private Long noAdresse;
 
     @Column(length = 150, nullable = false)
+    @NonNull
     private String rue;
 
     @Column(length = 5, nullable = false)
+    @NonNull
     private String codePostal;
 
     @Column(length = 100, nullable = false)
+    @NonNull
     private String ville;
 
+//    public Adresse(String rue, String codePostal, String ville) {
+//        this.rue = rue;
+//        this.codePostal = codePostal;
+//        this.ville = ville;
+//    }
 }
