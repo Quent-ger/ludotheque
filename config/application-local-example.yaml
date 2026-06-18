@@ -1,0 +1,5 @@
+app:
+  db:
+    user: USERNAME
+    password: PASSWORD
+    url: DB_URL
