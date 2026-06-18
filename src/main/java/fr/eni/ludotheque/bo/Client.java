@@ -39,4 +39,10 @@ public class Client {
         this.noTelephone = noTelephone;
         this.adresse = adresse;
     }
+
+    public Client(String nom, String prenom, String email) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+    }
 }
