@@ -8,4 +8,6 @@ insert into genres (no_genre, libelle)values (4, 'Coopératif');
 insert into genres (no_genre, libelle)values (5, 'Jeu de dé');
 insert into genres (no_genre, libelle)values (6, 'Jeu d''enquete');
 SET IDENTITY_INSERT genres OFF;
-delete from jeux;
+SET IDENTITY_INSERT jeux ON
+insert into jeux (id, titre, reference, age_min, description, duree, tarif_jour)values (1, 'Risk', 12, 12, 'une descr', 300, 5.25);
+SET IDENTITY_INSERT jeux OFF
