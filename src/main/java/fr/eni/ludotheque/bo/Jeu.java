@@ -45,6 +45,9 @@ public class Jeu {
     )
     private List<Genre> genres = new ArrayList<>();
 
+//    @OneToMany(mappedBy = "jeu", cascade = CascadeType.ALL )
+//    private List<Exemplaire> exemplaires = new ArrayList<>();
+
     public Jeu(String titre, Long reference, int ageMin, String description, int duree, double tarifJour) {
         this.titre = titre;
         this.reference = reference;
