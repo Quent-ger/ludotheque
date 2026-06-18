@@ -4,9 +4,9 @@ spring:
 
   #Connection to DB
   datasource:
-    url: jdbc:sqlserver://localhost;databasename=LUDO_DB;integratedSecurity=false;encrypt=false;trustServerCertificate=false
-    username: sa
-    password: Pa$$w0rd
+    url: jdbc:sqlserver://localhost;databasename=${DB_NAME};integratedSecurity=false;encrypt=false;trustServerCertificate=false
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
 
   #Options to DB
   jpa:
