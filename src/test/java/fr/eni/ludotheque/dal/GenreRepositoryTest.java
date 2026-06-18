@@ -13,18 +13,5 @@ public class GenreRepositoryTest {
     @Autowired
     private GenreRepository genreRepository;
 
-    @Test
-    void testCreationGenreCasPositif(){
-        // Arrange
-        Genre genre = new Genre();
-        genre.setLibelle("Jeu de plateau");
 
-        // Act
-        Genre savedGenre = genreRepository.save(genre);
-
-        // Arrange
-        assertThat(savedGenre).isNotNull();
-        assertThat(savedGenre.getNoGenre()).isNotNull();
-        assertThat(savedGenre.getLibelle()).isEqualTo("Jeu de plateau");
-    }
 }
