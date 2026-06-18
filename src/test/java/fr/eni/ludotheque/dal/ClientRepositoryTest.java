@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 public class ClientRepositoryTest {
@@ -19,17 +21,15 @@ public class ClientRepositoryTest {
     @Test
     public void testCreationClientCasPositif(){
         // Arrange
-        Adresse adresse = new Adresse();
-        adresse.setRue("1 rue Paul Signac");
-        adresse.setCodePostal("56000");
-        adresse.setVille("Vannes");
+//        Adresse adresse = new Adresse();
+//        adresse.setRue("1 rue Paul Signac");
+//        adresse.setCodePostal("56000");
+//        adresse.setVille("Vannes");
 
-        Client client = new Client();
-        client.setNom("Bob");
-        client.setPrenom("John");
-        client.setEmail("abcdef@fakemail.com");
-        client.setNoTelephone("0677667766");
-        client.setAdresse(adresse);
+        Adresse adresse  = new Adresse("1 rue Paul Signac", "56000", "Vannes");
+
+        Client client = new Client("Bob", "John", "abcdef@fakemail.com",
+                "0677667766", adresse);
 
         // Act
 
@@ -38,13 +38,11 @@ public class ClientRepositoryTest {
         // Assert
 
         // client
-        assertThat(savedClient).isNotNull();
+        Client clientEnBD = clientRepository.findById(savedClient.getNoClient()).orElse(null);
+        assertNotNull(clientEnBD);
+        assertNotNull(savedClient);
         assertThat(savedClient.getNoClient()).isNotNull();
-        assertThat(savedClient.getNom()).isNotNull();
-        assertThat(savedClient.getPrenom()).isNotNull();
-        assertThat(savedClient.getEmail()).isNotNull();
-        assertThat(savedClient.getNoTelephone()).isNotNull();
-        assertThat(savedClient.getNom()).isEqualTo("Bob");
+        assertEquals("Bob", savedClient.getNom());
         assertThat(savedClient.getPrenom()).isEqualTo("John");
         assertThat(savedClient.getNoTelephone()).isEqualTo("0677667766");
         assertThat(savedClient.getEmail()).isEqualTo("abcdef@fakemail.com");
