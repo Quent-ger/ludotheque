@@ -34,6 +34,8 @@ public class ClientServiceImplTest  {
         // Assert
         Client clientBD = clientRepository.findById(client.getNoClient()).orElse(null);
         Assertions.assertNotNull(clientBD);
+        Assertions.assertNotNull(clientBD.getNoClient());
+        Assertions.assertNotNull(clientBD.getAdresse());
     }
 
 
