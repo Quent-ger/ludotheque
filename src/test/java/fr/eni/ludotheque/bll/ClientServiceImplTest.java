@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 public class ClientServiceImplTest  {
 
@@ -21,19 +23,48 @@ public class ClientServiceImplTest  {
     public void testCreationClient() {
         // Arrange
         Adresse adresse = new Adresse("12 rue Mayflower", "26000", "Valence");
+        Adresse adresse2 = new Adresse("13 rue Mayflower", "26000", "Valence");
 
 
         Client client = new Client("John", "Ringo", "johnringo@mail.com");
         client.setNoTelephone("0666226644");
         client.setAdresse(adresse);
 
+        Client client2 = new Client("George", "Cartney", "georgecartney@mail.com");
+        client2.setAdresse(adresse2);
+        client2.setNoTelephone("0633142345");
 
         // Act
         clientService.ajouterClient(client);
+        clientService.ajouterClient(client2);
 
         // Assert
         Client clientBD = clientRepository.findById(client.getNoClient()).orElse(null);
+        Client clientBD2 = clientRepository.findById(client2.getNoClient()).orElse(null);
         Assertions.assertNotNull(clientBD);
+        Assertions.assertNotNull(clientBD2);
+    }
+
+    @Test
+    public void testRechercheClientParNom() {
+        // Arrange
+            Adresse adresse = new Adresse("12 rue Mayflower", "26000", "Valence");
+
+            Client client = new Client("John", "Ringo", "johnringo@mail.com");
+            client.setNoTelephone("0666226644");
+            client.setAdresse(adresse);
+
+            String termeDeRecherche = "oh";
+        // Act
+            clientService.ajouterClient(client);
+            List<Client> clients = clientService.rechercherClient(termeDeRecherche);
+        System.out.println(clients);
+        System.out.println(termeDeRecherche);
+        // Assert
+        Assertions.assertNotNull(clients);
+        Assertions.assertFalse(clients.isEmpty());
+        Assertions.assertEquals(1, clients.size());
+        Assertions.assertEquals("John", clients.getFirst().getNom());
     }
 
 

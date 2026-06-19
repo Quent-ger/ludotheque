@@ -2,7 +2,11 @@ package fr.eni.ludotheque.bll;
 
 import fr.eni.ludotheque.bo.Client;
 
+import java.util.List;
+
 public interface ClientService {
 
-    public void ajouterClient(Client client);
+    void ajouterClient(Client client);
+
+    List<Client> rechercherClient(String search);
 }
