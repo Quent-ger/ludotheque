@@ -13,7 +13,7 @@ config/application-local.yaml
 .project
 .settings
 .springBeans
-.sts4-cache
+.sts4-cachegi
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
@@ -36,5 +36,4 @@ out/
 
 ### VS Code ###
 .vscode/
-config/application-local.yaml
 config/application-local.yaml
