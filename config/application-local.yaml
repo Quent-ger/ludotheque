@@ -1,6 +1,0 @@
-app:
-  db:
-    user: LUDO_DB
-    password: LUDO_PWD
-    url: jdbc:sqlserver://localhost;databasename=LUDO_DB;integratedSecurity=false;encrypt=false;trustServerCertificate=false
-
