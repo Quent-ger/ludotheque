@@ -24,6 +24,6 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
         public List<Client> rechercherClient(String recherche) {
-            return clientRepository.findByNomContaining(recherche);
+            return clientRepository.findByNomStartingWith(recherche);
         }
 }

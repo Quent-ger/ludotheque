@@ -53,13 +53,11 @@ public class ClientServiceImplTest  {
             Client client = new Client("John", "Ringo", "johnringo@mail.com");
             client.setNoTelephone("0666226644");
             client.setAdresse(adresse);
-
-            String termeDeRecherche = "oh";
-        // Act
             clientService.ajouterClient(client);
+
+        // Act
+            String termeDeRecherche = "Jo";
             List<Client> clients = clientService.rechercherClient(termeDeRecherche);
-        System.out.println(clients);
-        System.out.println(termeDeRecherche);
         // Assert
         Assertions.assertNotNull(clients);
         Assertions.assertFalse(clients.isEmpty());
