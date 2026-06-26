@@ -1,7 +1,7 @@
 package fr.eni.ludotheque;
 
 public class DataNotFound extends RuntimeException {
-  public DataNotFound(String message) {
-    super(message);
-  }
+    public DataNotFound(String type, Object recherche) {
+        super("L'element recherche n'a pas été trouvé - type " + type + " - critere de recherche :  " + recherche  );
+    }
 }
